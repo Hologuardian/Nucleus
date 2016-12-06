@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class ActionWander : Action
 {
@@ -15,13 +16,13 @@ public class ActionWander : Action
         // Time to wander b
         if (self.parent != null)
         {
-            if (self.board.ContainsKey("targetVector2"))
+            if (self.board.ContainsKey(StringLiterals.Target_Vector2))
             {
-                self.board["targetVector2"].V = UnityEngine.Random.insideUnitCircle * (self.parent.transform.localScale.x / 2) + origin;
+                self.board[StringLiterals.Target_Vector2].V = UnityEngine.Random.insideUnitCircle * (self.parent.transform.localScale.x / 2) + origin;
             }
             else
             {
-                self.board.Add("targetVector2", new Value(UnityEngine.Random.insideUnitCircle * (self.parent.transform.localScale.x / 2) + origin));
+                self.board.Add(StringLiterals.Target_Vector2, new Value(UnityEngine.Random.insideUnitCircle * (self.parent.transform.localScale.x / 2) + origin));
             }
         }
     }

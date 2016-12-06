@@ -70,8 +70,9 @@
     <Compile Include="Assets\Scripts\Actions\ActionFindFood.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionMove.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionWander.cs" />
-    <Compile Include="Assets\Scripts\Agents\Nibble.cs" />
-    <Compile Include="Assets\Scripts\Agents\SimpleAgent.cs" />
+    <Compile Include="Assets\Scripts\Agent\Colony.cs" />
+    <Compile Include="Assets\Scripts\Agent\Nibble.cs" />
+    <Compile Include="Assets\Scripts\Agent\SimpleAgent.cs" />
     <Compile Include="Assets\Scripts\BiomeSeeder.cs" />
     <Compile Include="Assets\Scripts\Condition.cs" />
     <Compile Include="Assets\Scripts\ConditionValue.cs" />

@@ -31,6 +31,11 @@ public class Value
         }
     }
 
+    public static implicit operator float? (Value value)
+    {
+        return (float?)value.V;
+    }
+
     public Value(object value)
     {
         type = value.GetType();

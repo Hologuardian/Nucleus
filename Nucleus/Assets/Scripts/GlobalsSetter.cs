@@ -22,7 +22,13 @@ public class GlobalsSetter : MonoBehaviour
     //Bind string literals
     public static Dictionary<string, Color> action_COLORS = new Dictionary<string, Color>()
     {
-        { StringLiterals.FindFood, new Color(255, 255, 255)}
+        { StringLiterals.FindLight, new Color(255, 251, 97)},
+        { StringLiterals.FindCell, new Color(97, 255, 235)},
+        { StringLiterals.FindFood, new Color(97, 255, 111)},
+        { StringLiterals.Lysis, new Color(214, 97, 255)},
+        { StringLiterals.Mitosis, new Color(231, 231, 231)},
+        { StringLiterals.EatNibble, new Color(161, 255, 107)},
+        { StringLiterals.Phaegocytosis, new Color(255, 107, 165)}
     };
 
     // Use this for initialization

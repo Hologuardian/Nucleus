@@ -117,22 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MitosisThreshhold" xml:space="preserve">
+    <value />
+  </data>
   <data name="EatNibble" xml:space="preserve">
-    <value>EatNibble</value>
+    <value>Eat Nibbles</value>
   </data>
   <data name="Energy" xml:space="preserve">
     <value>energy</value>
   </data>
+  <data name="FindCell" xml:space="preserve">
+    <value>Find Cell</value>
+  </data>
   <data name="FindFood" xml:space="preserve">
-    <value>FindFood</value>
+    <value>Find Nibbles</value>
+  </data>
+  <data name="FindLight" xml:space="preserve">
+    <value>Find Light</value>
+  </data>
+  <data name="Lysis" xml:space="preserve">
+    <value>Lysis</value>
+  </data>
+  <data name="Mitosis" xml:space="preserve">
+    <value>Mitosis</value>
   </data>
   <data name="Move" xml:space="preserve">
     <value>Move</value>
+  </data>
+  <data name="Phaegocytosis" xml:space="preserve">
+    <value>Phaegocytosis</value>
   </data>
   <data name="TargetTransform" xml:space="preserve">
     <value>targetTransform</value>
   </data>
   <data name="Wander" xml:space="preserve">
     <value>Wander</value>
+  </data>
+  <data name="Scale" xml:space="preserve">
+    <value>scale</value>
   </data>
 </root>

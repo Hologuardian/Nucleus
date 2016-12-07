@@ -61,7 +61,7 @@ namespace Assets {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EatNibble.
+        ///   Looks up a localized string similar to Eat Nibbles.
         /// </summary>
         internal static string EatNibble {
             get {
@@ -79,11 +79,56 @@ namespace Assets {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FindFood.
+        ///   Looks up a localized string similar to Find Cell.
+        /// </summary>
+        internal static string FindCell {
+            get {
+                return ResourceManager.GetString("FindCell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find Nibbles.
         /// </summary>
         internal static string FindFood {
             get {
                 return ResourceManager.GetString("FindFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find Light.
+        /// </summary>
+        internal static string FindLight {
+            get {
+                return ResourceManager.GetString("FindLight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lysis.
+        /// </summary>
+        internal static string Lysis {
+            get {
+                return ResourceManager.GetString("Lysis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mitosis.
+        /// </summary>
+        internal static string Mitosis {
+            get {
+                return ResourceManager.GetString("Mitosis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string MitosisThreshhold {
+            get {
+                return ResourceManager.GetString("MitosisThreshhold", resourceCulture);
             }
         }
         
@@ -93,6 +138,24 @@ namespace Assets {
         internal static string Move {
             get {
                 return ResourceManager.GetString("Move", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phaegocytosis.
+        /// </summary>
+        internal static string Phaegocytosis {
+            get {
+                return ResourceManager.GetString("Phaegocytosis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to scale.
+        /// </summary>
+        internal static string Scale {
+            get {
+                return ResourceManager.GetString("Scale", resourceCulture);
             }
         }
         

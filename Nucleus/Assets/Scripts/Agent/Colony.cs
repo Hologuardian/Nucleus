@@ -11,7 +11,8 @@ public class Colony : MonoBehaviour
 
     public void AddAction(Action action)
     {
-        AddAction(action, 0.5f);
+        if (!availableActions.Contains(action.Label))
+            availableActions.Add(action.Label);
     }
 
     public void AddAction(Action action, float reward)

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Condition
 {
-    public enum ConditionLogic { none, less, lessequal, equal, greaterequal, greater, not };
+    public enum ConditionLogic { none, less, lessequal, equal, greaterequal, greater, not, callback };
 
     ConditionValue value;
     ConditionValue comparison;

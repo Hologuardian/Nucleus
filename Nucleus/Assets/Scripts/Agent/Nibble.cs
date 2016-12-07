@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class Nibble : MonoBehaviour
+public class Nibble : NetworkBehaviour
 {
     public static float SCALE_MIN = 0.25f;
     public static float SCALE_MAX = 0.75f;

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System;
 using Assets;
+using UnityEngine.Networking;
 
-public class SimpleAgent : MonoBehaviour
+public class SimpleAgent : NetworkBehaviour
 {
     public Colony colony;
 
@@ -49,6 +50,11 @@ public class SimpleAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         if (board.ContainsKey(StringLiterals.TargetTransform))
             target_distance.value = ((Vector2)board[StringLiterals.TargetTransform].V - (Vector2)transform.position).magnitude;
 

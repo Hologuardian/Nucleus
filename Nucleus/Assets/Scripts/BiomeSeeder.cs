@@ -22,7 +22,7 @@ public class BiomeSeeder : MonoBehaviour
     {
         if (nibbles.Count < nibbleMax)
         {
-            nibbles.Add(Instantiate(PrefabNibble, Random.insideUnitCircle * (transform.localScale.x / 2), new Quaternion()) as Nibble);
+            nibbles.Add(Network.Instantiate(PrefabNibble, Random.insideUnitCircle * (transform.localScale.x / 2), new Quaternion(), 0) as Nibble);
             nibbles[nibbles.Count - 1].parent = this;
         }
     }

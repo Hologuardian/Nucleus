@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System;
 using Assets;
+using UnityEngine.Networking;
 
-public class Colony : MonoBehaviour
+public class Colony : NetworkBehaviour
 {
     public SimpleAgent cellPrefab;
     public List<SimpleAgent> cells = new List<SimpleAgent>();

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using Assets;
 
 public class GlobalsSetter : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class GlobalsSetter : MonoBehaviour
     // Action
     public static float action_SPEED_MIN = 10.0f;
     public static float action_SPEED_MAX = 20.0f;
+    //Bind string literals
+    public static Dictionary<string, Color> action_COLORS = new Dictionary<string, Color>()
+    {
+        { StringLiterals.FindFood, new Color(255, 255, 255)}
+    };
 
     // Use this for initialization
     void Start()

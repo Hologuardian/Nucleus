@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assets.Scripts {
+namespace Assets {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Assets.Scripts {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Assets.Scripts.StringLiterals", typeof(StringLiterals).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Assets.StringLiterals", typeof(StringLiterals).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,6 +61,15 @@ namespace Assets.Scripts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EatNibble.
+        /// </summary>
+        internal static string EatNibble {
+            get {
+                return ResourceManager.GetString("EatNibble", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to energy.
         /// </summary>
         internal static string Energy {
@@ -70,20 +79,38 @@ namespace Assets.Scripts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to targetAgent.
+        ///   Looks up a localized string similar to FindFood.
         /// </summary>
-        internal static string Target_Agent {
+        internal static string FindFood {
             get {
-                return ResourceManager.GetString("Target_Agent", resourceCulture);
+                return ResourceManager.GetString("FindFood", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to targetVector2.
+        ///   Looks up a localized string similar to Move.
         /// </summary>
-        internal static string Target_Vector2 {
+        internal static string Move {
             get {
-                return ResourceManager.GetString("Target_Vector2", resourceCulture);
+                return ResourceManager.GetString("Move", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to targetTransform.
+        /// </summary>
+        internal static string TargetTransform {
+            get {
+                return ResourceManager.GetString("TargetTransform", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wander.
+        /// </summary>
+        internal static string Wander {
+            get {
+                return ResourceManager.GetString("Wander", resourceCulture);
             }
         }
     }

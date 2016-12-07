@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\DootDoot.cs" />
     <Compile Include="Assets\Scripts\Actions\Action.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionEat.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionFindFood.cs" />
@@ -75,17 +76,21 @@
     <Compile Include="Assets\Scripts\Condition.cs" />
     <Compile Include="Assets\Scripts\ConditionValue.cs" />
     <Compile Include="Assets\Scripts\GlobalsSetter.cs" />
-    <Compile Include="Assets\Scripts\StringLiterals.Designer.cs">
+    <Compile Include="Assets\Scripts\Value.cs" />
+    <Compile Include="Assets\StringLiterals.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StringLiterals.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\UI\ActionRewardWidget.cs" />
     <Compile Include="Assets\Scripts\UI\PlayGame.cs" />
     <Compile Include="Assets\Scripts\Value.cs" />
+=======
+>>>>>>> e357b2429ccf841e1a0ec56d2cc8a437e81479ec
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\Scripts\StringLiterals.resx">
+    <EmbeddedResource Include="Assets\StringLiterals.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>StringLiterals.Designer.cs</LastGenOutput>
     </EmbeddedResource>

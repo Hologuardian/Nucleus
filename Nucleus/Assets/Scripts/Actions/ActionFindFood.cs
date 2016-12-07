@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Assets.Scripts;
+using Assets;
 
 public class ActionFindFood : Action
 {
     public float range = 5;
 
-    public ActionFindFood(SimpleAgent self, Condition condition) : base(self, condition)
+    public ActionFindFood(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.FindFood)
     {
 
     }
@@ -41,13 +41,13 @@ public class ActionFindFood : Action
                 target = hubby.transform.position;
             }
 
-            if (self.board.ContainsKey(StringLiterals.Target_Vector2))
+            if (self.board.ContainsKey(StringLiterals.TargetTransform))
             {
-                self.board[StringLiterals.Target_Vector2].V = target;
+                self.board[StringLiterals.TargetTransform].V = target;
             }
             else
             {
-                self.board.Add(StringLiterals.Target_Vector2, new Value(target));
+                self.board.Add(StringLiterals.TargetTransform, new Value(target));
             }
         }
     }

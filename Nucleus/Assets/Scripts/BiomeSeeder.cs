@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public class BiomeSeeder : MonoBehaviour
 {
@@ -22,7 +23,10 @@ public class BiomeSeeder : MonoBehaviour
     {
         if (nibbles.Count < nibbleMax)
         {
-            nibbles.Add(Network.Instantiate(PrefabNibble, Random.insideUnitCircle * (transform.localScale.x / 2), new Quaternion(), 0) as Nibble);
+            Nibble nibble = Instantiate(PrefabNibble, Random.insideUnitCircle * (transform.localScale.x / 2), new Quaternion()) as Nibble;
+            NetworkServer.Spawn(nibble.gameObject);
+
+            nibbles.Add(nibble);
             nibbles[nibbles.Count - 1].parent = this;
         }
     }

@@ -19,7 +19,9 @@ public class Colony : NetworkBehaviour
         {
             Vector3 local = UnityEngine.Random.insideUnitCircle * 5.0f;
 
-            SimpleAgent cell = Network.Instantiate(cellPrefab, position + local, new Quaternion(), 0) as SimpleAgent;
+            SimpleAgent cell = Instantiate(cellPrefab, position + local, new Quaternion()) as SimpleAgent;
+
+            NetworkServer.Spawn(cell.gameObject);
         }
     }
 

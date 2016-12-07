@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets;
+using System;
 
 public class ActionEat : Action
 {
     public ActionEat(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.EatNibble)
     {
 
+    }
+
+    public override float Estimate()
+    {
+        return 0.0f;
     }
 
     protected override void Execute()
@@ -32,13 +38,13 @@ public class ActionEat : Action
         if (hubby != null)
         {
             hubby.Die();
-            if (self.board.ContainsKey("energy"))
+            if (self.board.ContainsKey(StringLiterals.Energy))
             {
-                self.board["energy"].V = 10.0f + (float)self.board["energy"].V;
+                self.board[StringLiterals.Energy].V = 10.0f + (float)self.board[StringLiterals.Energy].V;
             }
             else
             {
-                self.board["energy"].V = .0f;
+                self.board[StringLiterals.Energy].V = 0.0f;
             }
         }
     }

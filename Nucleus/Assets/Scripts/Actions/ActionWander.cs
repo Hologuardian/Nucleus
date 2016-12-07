@@ -11,6 +11,11 @@ public class ActionWander : Action
         origin = self.parent.transform.position;
     }
 
+    public override float Estimate()
+    {
+        return 0.0f;
+    }
+
     protected override void Execute()
     {
         // Time to wander b

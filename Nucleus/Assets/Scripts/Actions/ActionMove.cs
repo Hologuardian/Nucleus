@@ -23,6 +23,11 @@ public class ActionMove : Action
         }
     }
 
+    public override float Estimate()
+    {
+        return 0.0f;
+    }
+
     protected override void Execute()
     {
         if (self.board.ContainsKey(StringLiterals.TargetTransform))

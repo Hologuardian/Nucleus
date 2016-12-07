@@ -41,6 +41,25 @@ public class Colony : MonoBehaviour
     public void EvaluateActions()
     {
         availableActions.Clear();
+        Dictionary<string, float> tempRewards = actionRewards;
         actionRewards.Clear();
+        foreach(SimpleAgent cell in cells)
+        {
+            foreach(Action action in cell.GetActions())
+            {
+                if(!availableActions.Contains(action.Label))
+                {
+                    availableActions.Add(action.Label);
+                    if (tempRewards.ContainsKey(action.Label))
+                    {
+                        actionRewards[action.Label] = tempRewards[action.Label];
+                    }
+                    else
+                    {
+                        actionRewards[action.Label] = 0.5f;
+                    }
+                }
+            }
+        }
     }
 }

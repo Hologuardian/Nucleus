@@ -15,6 +15,8 @@ public abstract class Action
         this.Label = Label;
     }
 
+    public abstract float Estimate();
+
     public void Evaluate()
     {
         if (condition)

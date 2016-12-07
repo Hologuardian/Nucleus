@@ -11,6 +11,11 @@ public class ActionFindFood : Action
 
     }
 
+    public override float Estimate()
+    {
+        return 0.0f;
+    }
+
     protected override void Execute()
     {
         // Time to find some nibbles

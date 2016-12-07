@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
-using Assets;
 using UnityEngine.Networking;
 
 public class Colony : NetworkBehaviour

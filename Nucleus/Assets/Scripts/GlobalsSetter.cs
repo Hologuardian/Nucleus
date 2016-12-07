@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Assets;
 
 public class GlobalsSetter : MonoBehaviour
 {

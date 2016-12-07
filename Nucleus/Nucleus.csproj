@@ -93,17 +93,7 @@
     <Compile Include="Assets\Scripts\UI\ActionRewardWidget.cs" />
     <Compile Include="Assets\Scripts\UI\PlayGame.cs" />
     <Compile Include="Assets\Scripts\Value.cs" />
-    <Compile Include="Assets\StringLiterals.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StringLiterals.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Assets\StringLiterals.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>StringLiterals.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <Compile Include="Assets\StringLiterals.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

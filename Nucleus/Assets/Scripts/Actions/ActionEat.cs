@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Assets;
 using System;
 
 public class ActionEat : Action

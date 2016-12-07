@@ -9,11 +9,11 @@ public class BiomeSeeder : MonoBehaviour
     public static int nibbleMax = 10;
 
     public List<Nibble> nibbles = new List<Nibble>();
-
+    public Colony colony;
     // Use this for initialization
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class BiomeSeeder : MonoBehaviour
             nibbles[nibbles.Count - 1].parent = this;
         }
 
-        if (SimpleAgent.cells.Count < 1)
+        if (colony.cells.Count < 1)
         {
             SimpleAgent cell = Instantiate(PrefabCell) as SimpleAgent;
             cell.parent = gameObject;

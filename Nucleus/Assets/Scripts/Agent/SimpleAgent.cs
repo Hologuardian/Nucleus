@@ -7,6 +7,7 @@ public class SimpleAgent : MonoBehaviour
 {
 
     public SimpleAgent PrefabCell;
+    public Colony colony;
 
     public GameObject parent;
     public Rigidbody2D rigid;
@@ -51,7 +52,7 @@ public class SimpleAgent : MonoBehaviour
 
         board.Add(StringLiterals.Energy, new Value(10.0f));
 
-        Colony.cells.Add(this);
+        colony.cells.Add(this);
     }
 
     // Update is called once per frame
@@ -89,7 +90,7 @@ public class SimpleAgent : MonoBehaviour
 
         if ((float)board[StringLiterals.Energy].V <= 0)
         {
-            Colony.cells.Remove(this);
+            colony.cells.Remove(this);
             Destroy(gameObject);
         }
     }

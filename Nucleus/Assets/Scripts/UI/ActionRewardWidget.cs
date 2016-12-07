@@ -4,27 +4,36 @@ using UnityEngine.UI;
 
 public class ActionRewardWidget : MonoBehaviour
 {
-    public Action action;
-    public Slider slider;
-    public GameObject sliderGO;
+    public Colony colony;
     public Text text;
-    
+    public Image fill_bottom;
+    public Sprite icon;
+    public Slider slider;
 	
-	void Start ()
+	void Start()
+    {
+	    
+	}
+	
+	void Update()
     {
 	
 	}
-	
-	void Update ()
+
+    public void Initialise(string action, Colony colony)
     {
-	
-	}
-    public void SetTextValue()
-    {
-        text.text = slider.value.ToString();
+        text.text = action;
+        this.colony = colony;
+
+        icon = Resources.Load<Sprite>("Sprites/" + action);
+
+        ColorBlock colorBlock = slider.colors;
+        // GlobalsSetter has a dictionary of action name to colour
+        colorBlock.pressedColor = fill_bottom.color = GlobalsSetter.action_COLOR[action];
     }
-    public void ToggleSlider()
+
+    public void ValueChange()
     {
-        sliderGO.SetActive(!sliderGO.activeInHierarchy);
+        colony.actionRewards[text.text] = slider.value;
     }
 }

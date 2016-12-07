@@ -29,7 +29,7 @@ public class ActionRewardWidget : MonoBehaviour
 
         ColorBlock colorBlock = slider.colors;
         // GlobalsSetter has a dictionary of action name to colour
-        colorBlock.pressedColor = fill_bottom.color = GlobalsSetter.action_COLOR[action];
+        colorBlock.pressedColor = fill_bottom.color = GlobalsSetter.action_COLORS[action];
     }
 
     public void ValueChange()

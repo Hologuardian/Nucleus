@@ -9,7 +9,7 @@ public class BiomeSeeder : MonoBehaviour
     public static int nibbleMax = 10;
 
     public List<Nibble> nibbles = new List<Nibble>();
-    public Colony colony;
+    public PlayerController playerPrefab;
     public List<Colony> colonies;
     // Use this for initialization
     void Start()
@@ -24,16 +24,6 @@ public class BiomeSeeder : MonoBehaviour
         {
             nibbles.Add(Instantiate(PrefabNibble, Random.insideUnitCircle * (transform.localScale.x / 2), new Quaternion()) as Nibble);
             nibbles[nibbles.Count - 1].parent = this;
-        }
-        if (colony.cells.Count < 1)
-        foreach (Colony colony in colonies)
-        {
-            if (colony.cells.Count < 1)
-            {
-                SimpleAgent cell = Instantiate(PrefabCell) as SimpleAgent;
-                cell.parent = colony.gameObject;
-            }
-
         }
     }
 }

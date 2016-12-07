@@ -5,8 +5,6 @@ using Assets;
 
 public class SimpleAgent : MonoBehaviour
 {
-
-    public SimpleAgent PrefabCell;
     public Colony colony;
 
     public GameObject parent;
@@ -67,8 +65,15 @@ public class SimpleAgent : MonoBehaviour
         actionPriority.Clear();
         foreach (Action a in actions)
         {
+<<<<<<< HEAD
             float result = colony.actionRewards[a.Label] / a.Estimate();
             actionPriority[result] = a;
+=======
+            mitosis_timer_current -= mitosis_timer;
+            mitosis_timer = UnityEngine.Random.Range(GlobalsSetter.agent_MITOSIS_TIMER_MIN, GlobalsSetter.agent_MITOSIS_TIMER_MAX);
+            SimpleAgent baby = Instantiate(colony.cellPrefab, transform.position, new Quaternion()) as SimpleAgent;
+            baby.parent = parent;
+>>>>>>> d2151a32ec2546327b43d86c48a3205936d4773e
         }
         foreach(Action a in actionPriority.Values)
         {

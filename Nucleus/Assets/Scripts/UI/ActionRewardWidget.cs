@@ -9,6 +9,7 @@ public class ActionRewardWidget : MonoBehaviour
     public Image fill_top;
     public Image fill_bottom;
     public Image icon;
+    public Text icon_text;
     public Slider slider;
 
     private bool isVisible = false;
@@ -33,10 +34,11 @@ public class ActionRewardWidget : MonoBehaviour
                 visibility = Mathf.Lerp(0, 1, timer_evaluated);
                 timer += Time.deltaTime;
 
-                Color colour = fill_top.color;
-                Color colour_bottom = fill_bottom.color;
-                Color colour_text = text.color;
-                colour.a = colour_bottom.a = colour_text.a = Mathf.Lerp(0, 1, timer_evaluated);
+                float lerp = Mathf.Lerp(1, 0, timer_evaluated);
+
+                fill_top.color = new Color(fill_top.color.r, fill_top.color.g, fill_top.color.b, lerp);
+                fill_bottom.color = new Color(fill_bottom.color.r, fill_bottom.color.g, fill_bottom.color.b, lerp);
+                text.color = new Color(text.color.r, text.color.g, text.color.b, lerp);
             }
         }
         else
@@ -46,10 +48,11 @@ public class ActionRewardWidget : MonoBehaviour
                 visibility = Mathf.Lerp(1, 0, timer_evaluated);
                 timer += Time.deltaTime;
 
-                Color colour = fill_top.color;
-                Color colour_bottom = fill_bottom.color;
-                Color colour_text = text.color;
-                colour.a = colour_bottom.a = colour_text.a = Mathf.Lerp(1, 0, timer_evaluated);
+                float lerp = Mathf.Lerp(1, 0, timer_evaluated);
+
+                fill_top.color = new Color(fill_top.color.r, fill_top.color.g, fill_top.color.b, lerp);
+                fill_bottom.color = new Color(fill_bottom.color.r, fill_bottom.color.g, fill_bottom.color.b, lerp);
+                text.color = new Color(text.color.r, text.color.g, text.color.b, lerp);
             }
         }
 	}
@@ -68,6 +71,7 @@ public class ActionRewardWidget : MonoBehaviour
 
     public void ValueChange()
     {
+        icon_text.text = slider.value.ToString();
         colony.actionRewards[text.text] = slider.value;
     }
 

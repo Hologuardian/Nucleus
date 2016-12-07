@@ -5,6 +5,7 @@ using Assets;
 
 public class Colony : MonoBehaviour
 {
+    public SimpleAgent cellPrefab;
     public List<SimpleAgent> cells = new List<SimpleAgent>();
     public List<string> availableActions = new List<string>();
     public Dictionary<string, float> actionRewards = new Dictionary<string, float>();

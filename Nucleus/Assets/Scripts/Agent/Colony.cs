@@ -18,8 +18,8 @@ public class Colony : MonoBehaviour
     {
         if (!availableActions.Contains(action.Label))
         {
-            availableActions.Add(action);
-            actionRewards[actionType.Label] = reward;
+            availableActions.Add(action.Label);
+            actionRewards[action.Label] = reward;
         }
     }
 

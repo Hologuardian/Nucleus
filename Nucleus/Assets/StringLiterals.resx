@@ -117,10 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EatNibble" xml:space="preserve">
+    <value>EatNibble</value>
+  </data>
   <data name="Energy" xml:space="preserve">
     <value>energy</value>
   </data>
+  <data name="FindFood" xml:space="preserve">
+    <value>FindFood</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Move</value>
+  </data>
   <data name="TargetTransform" xml:space="preserve">
     <value>targetTransform</value>
+  </data>
+  <data name="Wander" xml:space="preserve">
+    <value>Wander</value>
   </data>
 </root>

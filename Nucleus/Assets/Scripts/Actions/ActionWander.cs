@@ -6,7 +6,7 @@ public class ActionWander : Action
 {
     private Vector2 origin;
 
-    public ActionWander(SimpleAgent self, Condition condition) : base(self, condition)
+    public ActionWander(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.Wander)
     {
         origin = self.parent.transform.position;
     }

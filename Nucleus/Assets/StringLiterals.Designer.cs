@@ -61,6 +61,15 @@ namespace Assets {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EatNibble.
+        /// </summary>
+        internal static string EatNibble {
+            get {
+                return ResourceManager.GetString("EatNibble", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to energy.
         /// </summary>
         internal static string Energy {
@@ -70,11 +79,38 @@ namespace Assets {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FindFood.
+        /// </summary>
+        internal static string FindFood {
+            get {
+                return ResourceManager.GetString("FindFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move.
+        /// </summary>
+        internal static string Move {
+            get {
+                return ResourceManager.GetString("Move", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to targetTransform.
         /// </summary>
         internal static string TargetTransform {
             get {
                 return ResourceManager.GetString("TargetTransform", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wander.
+        /// </summary>
+        internal static string Wander {
+            get {
+                return ResourceManager.GetString("Wander", resourceCulture);
             }
         }
     }

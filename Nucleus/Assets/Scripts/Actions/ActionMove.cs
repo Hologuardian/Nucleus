@@ -11,7 +11,7 @@ public class ActionMove : Action
 
     private Vector2 target;
 
-    public ActionMove(SimpleAgent self, Condition condition) : base(self, condition)
+    public ActionMove(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.Move)
     {
         speed = UnityEngine.Random.Range(SPEED_MIN, SPEED_MAX);
 

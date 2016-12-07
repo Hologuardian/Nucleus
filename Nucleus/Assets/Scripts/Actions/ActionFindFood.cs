@@ -6,7 +6,7 @@ public class ActionFindFood : Action
 {
     public float range = 5;
 
-    public ActionFindFood(SimpleAgent self, Condition condition) : base(self, condition)
+    public ActionFindFood(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.FindFood)
     {
 
     }

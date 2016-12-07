@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets;
 
 public class ActionEat : Action
 {
-    public ActionEat(SimpleAgent self, Condition condition) : base(self, condition)
+    public ActionEat(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.EatNibble)
     {
 
     }

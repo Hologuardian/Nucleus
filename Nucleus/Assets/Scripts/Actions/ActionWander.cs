@@ -13,7 +13,7 @@ public class ActionWander : Action
 
     public override float Estimate()
     {
-        return 0.0f;
+        return 1.0f;
     }
 
     protected override void Execute()

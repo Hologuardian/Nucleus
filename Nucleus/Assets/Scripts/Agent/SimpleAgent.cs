@@ -20,6 +20,7 @@ public class SimpleAgent : MonoBehaviour
     public Dictionary<string, Value> board = new Dictionary<string, Value>();
 
     public List<Action> actions = new List<Action>();
+    public SortedList<float, Action> actionPriority = new SortedList<float, Action>();
 
     private ConditionValue target_distance_threshold = new ConditionValue(0.5f);
     private ConditionValue target_distance;
@@ -42,6 +43,7 @@ public class SimpleAgent : MonoBehaviour
         transform.localScale = Vector3.one * GlobalsSetter.agent_SCALE_MIN;
 
         board.Add(StringLiterals.Energy, new Value(10.0f));
+        board.Add(StringLiterals.Scale, new Value(new Vector3(1.0f, 1.0f, 1.0f)));
 
         colony.cells.Add(this);
     }
@@ -60,6 +62,18 @@ public class SimpleAgent : MonoBehaviour
         {
             colony.cells.Remove(this);
             Destroy(gameObject);
+        }
+
+        actionPriority.Clear();
+        foreach (Action a in actions)
+        {
+            float result = colony.actionRewards[a.Label] / a.Estimate();
+            actionPriority[result] = a;
+        }
+        foreach(Action a in actionPriority.Values)
+        {
+            if (a.Evaluate())
+                break;
         }
     }
 

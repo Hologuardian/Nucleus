@@ -17,12 +17,14 @@ public abstract class Action
 
     public abstract float Estimate();
 
-    public void Evaluate()
+    public bool Evaluate()
     {
         if (condition)
         {
             Execute();
+            return true;
         }
+        return false;
     }
 
     protected abstract void Execute();

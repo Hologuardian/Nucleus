@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Condition.cs" />
     <Compile Include="Assets\Scripts\ConditionValue.cs" />
     <Compile Include="Assets\Scripts\GlobalsSetter.cs" />
+    <Compile Include="Assets\Scripts\Networker.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\UI\ActionRewardWidget.cs" />
     <Compile Include="Assets\Scripts\UI\PlayGame.cs" />

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Assets.Scripts;
+using Assets;
 
 public class ActionMove : Action
 {
@@ -17,17 +17,17 @@ public class ActionMove : Action
 
         target = Vector2.zero;
 
-        if (self.board.ContainsKey(StringLiterals.Target_Vector2))
+        if (self.board.ContainsKey(StringLiterals.TargetTransform))
         {
-            target = (Vector2)self.board[StringLiterals.Target_Vector2].V;
+            target = (Vector2)self.board[StringLiterals.TargetTransform].V;
         }
     }
 
     protected override void Execute()
     {
-        if (self.board.ContainsKey(StringLiterals.Target_Vector2))
+        if (self.board.ContainsKey(StringLiterals.TargetTransform))
         {
-            target = (Vector2)self.board[StringLiterals.Target_Vector2].V;
+            target = (Vector2)self.board[StringLiterals.TargetTransform].V;
         }
 
         self.rigid.velocity = (((Vector3)target - self.transform.position).normalized * speed * Time.deltaTime);

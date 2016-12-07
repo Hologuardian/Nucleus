@@ -120,10 +120,7 @@
   <data name="Energy" xml:space="preserve">
     <value>energy</value>
   </data>
-  <data name="Target_Agent" xml:space="preserve">
-    <value>targetAgent</value>
-  </data>
-  <data name="Target_Vector2" xml:space="preserve">
-    <value>targetVector2</value>
+  <data name="TargetTransform" xml:space="preserve">
+    <value>targetTransform</value>
   </data>
 </root>

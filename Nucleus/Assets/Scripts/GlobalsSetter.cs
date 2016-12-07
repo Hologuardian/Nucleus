@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class GlobalsSetter : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public class GlobalsSetter : MonoBehaviour
     // Action
     public static float action_SPEED_MIN = 10.0f;
     public static float action_SPEED_MAX = 20.0f;
+    public static Dictionary<string, Color> actionColors = new Dictionary<string, Color>();
 
     // Use this for initialization
     void Start()

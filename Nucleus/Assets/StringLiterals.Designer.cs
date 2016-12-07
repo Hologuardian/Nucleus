@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assets.Scripts {
+namespace Assets {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Assets.Scripts {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Assets.Scripts.StringLiterals", typeof(StringLiterals).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Assets.StringLiterals", typeof(StringLiterals).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -70,20 +70,11 @@ namespace Assets.Scripts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to targetAgent.
+        ///   Looks up a localized string similar to targetTransform.
         /// </summary>
-        internal static string Target_Agent {
+        internal static string TargetTransform {
             get {
-                return ResourceManager.GetString("Target_Agent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to targetVector2.
-        /// </summary>
-        internal static string Target_Vector2 {
-            get {
-                return ResourceManager.GetString("Target_Vector2", resourceCulture);
+                return ResourceManager.GetString("TargetTransform", resourceCulture);
             }
         }
     }

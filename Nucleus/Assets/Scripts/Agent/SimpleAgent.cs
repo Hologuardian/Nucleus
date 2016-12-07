@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
-using Assets.Scripts;
+using Assets;
 
 public class SimpleAgent : MonoBehaviour
 {
@@ -58,8 +58,8 @@ public class SimpleAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (board.ContainsKey(StringLiterals.Target_Vector2))
-            target_distance.value = ((Vector2)board[StringLiterals.Target_Vector2].V - (Vector2)transform.position).magnitude;
+        if (board.ContainsKey(StringLiterals.TargetTransform))
+            target_distance.value = ((Vector2)board[StringLiterals.TargetTransform].V - (Vector2)transform.position).magnitude;
 
         findfood_timer.value += Time.deltaTime;
         mitosis_timer_current += Time.deltaTime;
@@ -93,5 +93,10 @@ public class SimpleAgent : MonoBehaviour
             colony.cells.Remove(this);
             Destroy(gameObject);
         }
+    }
+
+    public List<Action> GetActions()
+    {
+        return actions;
     }
 }

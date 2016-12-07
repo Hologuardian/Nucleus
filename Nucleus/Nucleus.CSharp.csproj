@@ -77,15 +77,15 @@
     <Compile Include="Assets\Scripts\Condition.cs" />
     <Compile Include="Assets\Scripts\ConditionValue.cs" />
     <Compile Include="Assets\Scripts\GlobalsSetter.cs" />
-    <Compile Include="Assets\Scripts\StringLiterals.Designer.cs">
+    <Compile Include="Assets\Scripts\Value.cs" />
+    <Compile Include="Assets\StringLiterals.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StringLiterals.resx</DependentUpon>
     </Compile>
-    <Compile Include="Assets\Scripts\Value.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\Scripts\StringLiterals.resx">
+    <EmbeddedResource Include="Assets\StringLiterals.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>StringLiterals.Designer.cs</LastGenOutput>
     </EmbeddedResource>

@@ -9,6 +9,7 @@ public class Colony : NetworkBehaviour
     public List<SimpleAgent> cells = new List<SimpleAgent>();
     public List<string> availableActions = new List<string>();
     public Dictionary<string, float> actionRewards = new Dictionary<string, float>();
+    public PlayerController playerController;
 
     void Start()
     {
@@ -19,6 +20,8 @@ public class Colony : NetworkBehaviour
             Vector3 local = UnityEngine.Random.insideUnitCircle * 5.0f;
 
             SimpleAgent cell = Instantiate(cellPrefab, position + local, new Quaternion()) as SimpleAgent;
+            cell.colony = this;
+            cell.owner = playerController;
 
             NetworkServer.Spawn(cell.gameObject);
         }
@@ -27,7 +30,10 @@ public class Colony : NetworkBehaviour
     public void AddAction(Action action)
     {
         if (!availableActions.Contains(action.Label))
+        {
             availableActions.Add(action.Label);
+            playerController.ActionAdded(action.Label);
+        }
     }
 
     public void AddAction(Action action, float reward)
@@ -36,6 +42,7 @@ public class Colony : NetworkBehaviour
         {
             availableActions.Add(action.Label);
             actionRewards[action.Label] = reward;
+            playerController.ActionAdded(action.Label);
         }
     }
 
@@ -46,6 +53,8 @@ public class Colony : NetworkBehaviour
         {
             AddAction(action);
         }
+        cell.colony = this;
+        cell.owner = playerController;
     }
 
     public void RemoveCell(SimpleAgent cell)
@@ -58,6 +67,10 @@ public class Colony : NetworkBehaviour
     {
         availableActions.Clear();
         Dictionary<string, float> tempRewards = actionRewards;
+        foreach(string action in tempRewards.Keys)
+        {
+            playerController.ActionRemoved(action);
+        }
         actionRewards.Clear();
         foreach(SimpleAgent cell in cells)
         {
@@ -66,6 +79,7 @@ public class Colony : NetworkBehaviour
                 if(!availableActions.Contains(action.Label))
                 {
                     availableActions.Add(action.Label);
+                    playerController.ActionAdded(action.Label);
                     if (tempRewards.ContainsKey(action.Label))
                     {
                         actionRewards[action.Label] = tempRewards[action.Label];

@@ -15,7 +15,7 @@ public class PlayerController : NetworkBehaviour
     // Use this for initialization
     void Start()
     {
-
+        colony.playerController = this;
     }
 
     // Update is called once per frame

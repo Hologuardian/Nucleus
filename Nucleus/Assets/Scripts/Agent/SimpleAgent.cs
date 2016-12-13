@@ -9,6 +9,7 @@ public class SimpleAgent : NetworkBehaviour
 
     public GameObject parent;
     public Rigidbody2D rigid;
+    public PlayerController owner;
 
     /// <summary>
     /// This is a public board for anything to write values to or to retrieve or change values from, please feel free to keep references, and change them as you see fit,
@@ -50,7 +51,7 @@ public class SimpleAgent : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isLocalPlayer)
+        if (!owner.isLocalPlayer)
         {
             return;
         }
@@ -71,8 +72,11 @@ public class SimpleAgent : NetworkBehaviour
         actionPriority.Clear();
         foreach (Action a in actions)
         {
-            float result = colony.actionRewards[a.Label] / a.Estimate();
-            actionPriority[result] = a;
+            if (colony.actionRewards.ContainsKey(a.Label))
+            {
+                float result = colony.actionRewards[a.Label] / a.Estimate();
+                actionPriority[result] = a;
+            }
         }
         foreach(Action a in actionPriority.Values)
         {

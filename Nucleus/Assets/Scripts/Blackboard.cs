@@ -12,11 +12,13 @@ public class Blackboard
 
     public void Add(string key, Value value)
     {
+        Debug.Log("Trying add value to dictionary: " + value + " at key: " + key);
         board.Add(key, value);
     }
 
     public bool ContainsKey(string key)
     {
+        Debug.Log("Trying to see if key is in dictionary: " + key);
         return board.ContainsKey(key);
     }
 
@@ -24,11 +26,12 @@ public class Blackboard
     {
         get
         {
-            Debug.Log(key);
+            Debug.Log("Trying to get value at key: " + key);
             return board[key];
         }
         set
         {
+            Debug.Log("Trying to set value at key: " + key);
             board[key] = value;
         }
     }

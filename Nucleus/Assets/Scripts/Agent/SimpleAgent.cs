@@ -15,7 +15,7 @@ public class SimpleAgent : NetworkBehaviour
     /// I just ask that you use this responsibly, it doesn't need tonnes of stuff put in it if you can help it, and you certainly don't want to keep getting the same value
     /// from here, if you need it frequently get it once and keep a reference for yourself after.
     /// </summary>
-    public Dictionary<string, Value> board = new Dictionary<string, Value>();
+    public Blackboard board = new Blackboard();
 
     public List<Action> actions = new List<Action>();
     public SortedList<float, Action> actionPriority = new SortedList<float, Action>();
@@ -34,14 +34,15 @@ public class SimpleAgent : NetworkBehaviour
 
         target_distance = new ConditionValue(target_distance_threshold);
 
-        actions.Add(new ActionFindFood(this, new Condition(new ConditionValue(board[StringLiterals.Energy]), new ConditionValue(board[StringLiterals.MitosisThreshhold]), Condition.ConditionLogic.equal)));
+        board.Add(StringLiterals.Energy, new Value(10.0f));
+        board.Add(StringLiterals.Scale, new Value(new Vector3(1.0f, 1.0f, 1.0f)));
+        board.Add(StringLiterals.MitosisThreshold, new Value(100.0f));
+
+        actions.Add(new ActionFindFood(this, new Condition(new ConditionValue(board[StringLiterals.Energy]), new ConditionValue(board[StringLiterals.MitosisThreshold]), Condition.ConditionLogic.equal)));
         actions.Add(new ActionMove(this, new Condition(new ConditionValue(0), new ConditionValue(0), Condition.ConditionLogic.none)));
         actions.Add(new ActionEat(this, new Condition(target_distance, new ConditionValue(1), Condition.ConditionLogic.lessequal)));
 
         transform.localScale = Vector3.one * GlobalsSetter.agent_SCALE_MIN;
-
-        board.Add(StringLiterals.Energy, new Value(10.0f));
-        board.Add(StringLiterals.Scale, new Value(new Vector3(1.0f, 1.0f, 1.0f)));
 
         colony.cells.Add(this);
     }

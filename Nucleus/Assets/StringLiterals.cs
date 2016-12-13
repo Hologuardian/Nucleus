@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StringLiterals
 {
-    public static string MitosisThreshhold = "MitosisThreshhold";
+    public static string MitosisThreshold = "MitosisThreshhold";
     public static string EatNibble = "Eat Nibbles";
     public static string Energy = "energy";
     public static string FindCell = "Find Cell";

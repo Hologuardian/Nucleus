@@ -80,11 +80,11 @@ public class SimpleAgent : NetworkBehaviour
         board[StringLiterals.Energy].V = (float)board[StringLiterals.Energy].V - Time.deltaTime;
 
         transform.localScale = Vector3.MoveTowards(transform.localScale, (Vector3)board[StringLiterals.Scale].V, 0.01f);
-        Die();
 
         if ((float)board[StringLiterals.Energy].V <= 0)
         {
             Die();
+            return;
         }
 
         actionPriority.Clear();

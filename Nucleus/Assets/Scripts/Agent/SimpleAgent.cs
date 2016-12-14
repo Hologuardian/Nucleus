@@ -10,6 +10,7 @@ public class SimpleAgent : NetworkBehaviour
     public GameObject parent;
     public Rigidbody2D rigid;
     public PlayerController owner;
+    public Nibble PrefabNibble;
 
     /// <summary>
     /// This is a public board for anything to write values to or to retrieve or change values from, please feel free to keep references, and change them as you see fit,
@@ -48,6 +49,23 @@ public class SimpleAgent : NetworkBehaviour
         colony.AddCell(this);
     }
 
+    public void Die()
+    {
+        for(int i = 0; i < board[StringLiterals.Energy] / 10.0f; i++)
+        {
+            Vector2 rand = UnityEngine.Random.insideUnitCircle * (transform.localScale.x / 2);
+
+            Nibble nibble = Instantiate(PrefabNibble, new Vector3(rand.x, 0, rand.y) + transform.position, new Quaternion()) as Nibble;
+            NetworkServer.Spawn(nibble.gameObject);
+        }
+        Destroy(this.gameObject);
+    }
+
+    void OnDestroy()
+    {
+        colony.RemoveCell(this);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -62,11 +80,11 @@ public class SimpleAgent : NetworkBehaviour
         board[StringLiterals.Energy].V = (float)board[StringLiterals.Energy].V - Time.deltaTime;
 
         transform.localScale = Vector3.MoveTowards(transform.localScale, (Vector3)board[StringLiterals.Scale].V, 0.01f);
+        Die();
 
         if ((float)board[StringLiterals.Energy].V <= 0)
         {
-            colony.cells.Remove(this);
-            Destroy(gameObject);
+            Die();
         }
 
         actionPriority.Clear();

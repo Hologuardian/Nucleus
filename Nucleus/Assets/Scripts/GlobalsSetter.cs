@@ -44,8 +44,6 @@ public class GlobalsSetter : MonoBehaviour
 
     public void Set()
     {
-        BiomeSeeder.nibbleMax = nibbleMax;
-
         Nibble.SCALE_MIN = nibble_SCALE_MIN;
         Nibble.SCALE_MAX = nibble_SCALE_MAX;
         Nibble.GROWTH_TIME_MIN = nibble_GROWTH_TIME_MIN;

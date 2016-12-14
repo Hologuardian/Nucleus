@@ -9,8 +9,6 @@ public class Nibble : MonoBehaviour
     public static float GROWTH_TIME_MIN = 1;
     public static float GROWTH_TIME_MAX = 10;
 
-    public BiomeSeeder parent;
-
     public float scale_start = 0;
     public float scale_goal = 0;
 
@@ -39,7 +37,6 @@ public class Nibble : MonoBehaviour
 
     public void Die()
     {
-        parent.nibbles.Remove(this);
         Destroy(gameObject);
     }
 }

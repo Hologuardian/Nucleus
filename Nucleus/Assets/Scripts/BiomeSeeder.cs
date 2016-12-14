@@ -5,29 +5,39 @@ using UnityEngine.Networking;
 public class BiomeSeeder : MonoBehaviour
 {
     public SimpleAgent PrefabCell;
-    public Nibble PrefabNibble;
-
-    public static int nibbleMax = 10;
-
-    public List<Nibble> nibbles = new List<Nibble>();
     public PlayerController playerPrefab;
-    public List<Colony> colonies;
+    public List<Glow> glows;
     // Use this for initialization
     void Start()
     {
+        for(int i = 0; i < 5 + Random.Range(0, 6); i++)
+        {
+            Vector2 position = Random.insideUnitCircle;
 
+            GameObject glow = new GameObject();
+            glow.AddComponent(typeof(Glow));
+
+            Glow glowScript = glow.GetComponent<Glow>();
+            glowScript.transform.position = new Vector3(position.x, 0, position.y);
+            glowScript.range = 2 + Random.Range(0, 10);
+            glowScript.transform.localScale = new Vector3(glowScript.range, glowScript.range, glowScript.range);
+            glowScript.intensity = Random.value;
+
+            Instantiate(glow);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (nibbles.Count < nibbleMax)
-        {
-            Nibble nibble = Instantiate(PrefabNibble, Random.insideUnitCircle * (transform.localScale.x / 2), new Quaternion()) as Nibble;
-            NetworkServer.Spawn(nibble.gameObject);
+    }
 
-            nibbles.Add(nibble);
-            nibbles[nibbles.Count - 1].parent = this;
-        }
+    public void UpdateLightSpot(Glow spot)
+    {
+        Vector2 position = Random.insideUnitCircle;
+        spot.transform.position = new Vector3(position.x, 0, position.y);
+        spot.range = 2 + Random.Range(0, 10);
+        spot.transform.localScale = new Vector3(spot.range, spot.range, spot.range);
+        spot.intensity = Random.value;
     }
 }

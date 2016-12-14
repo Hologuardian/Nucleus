@@ -1,0 +1,12 @@
+Composite -> Actions
+	Organisms have organs have actions
+Decorator -> Actions
+	Actions are attached whenever they need to be to organs in-order to extend the functionality of an organ
+Proxy -> Organs
+	Organisms use organs to have, manage, and update their actions, indirectly
+Blackboard -> Organisms
+	Allows us to post data to it that enables different kinds of data to all be in one unified place
+Observer -> Organs
+	Organs update (changing their state) then they update all the actions they have.
+Template -> Action
+	Actions all come from a template action, and override it's execute method.

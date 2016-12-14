@@ -24,6 +24,7 @@ public class PlayerController : NetworkBehaviour
     void Start()
     {
         colony.playerController = this;
+
         if(NetworkServer.connections.Count == 1)
         {
             BiomeSeeder seeder = Instantiate(seederPrefab);

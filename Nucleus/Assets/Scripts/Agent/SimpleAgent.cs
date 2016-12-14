@@ -45,7 +45,7 @@ public class SimpleAgent : NetworkBehaviour
 
         transform.localScale = Vector3.one * GlobalsSetter.agent_SCALE_MIN;
 
-        colony.cells.Add(this);
+        colony.AddCell(this);
     }
 
     // Update is called once per frame

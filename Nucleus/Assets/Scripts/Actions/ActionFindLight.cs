@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActionFindLight : Action
 {
-    public float range = 5;
+    public float range = 100.0f;
 
     public ActionFindLight(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.FindFood)
     {
@@ -23,12 +23,12 @@ public class ActionFindLight : Action
             Vector2 target = UnityEngine.Random.insideUnitCircle * (self.parent.transform.lossyScale.x / 2) + (Vector2)self.parent.transform.position;
 
             RaycastHit2D[] hits = Physics2D.CircleCastAll(self.transform.position, range, Vector2.zero);
-            Nibble hubby = null;
+            Glow hubby = null;
             float distance = float.PositiveInfinity;
 
             foreach (RaycastHit2D hit in hits)
             {
-                Nibble binble = hit.collider.GetComponentInParent<Nibble>();
+                Glow binble = hit.collider.GetComponent<Glow>();
                 if (binble != null)
                 {
                     float check = (binble.transform.position - self.transform.position).sqrMagnitude;

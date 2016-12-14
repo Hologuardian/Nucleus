@@ -62,7 +62,7 @@ public class ActionRewardWidget : MonoBehaviour
         text.text = action;
         this.colony = colony;
 
-        icon = Resources.Load<Image>("Sprites/" + action);
+        icon.sprite = Resources.Load<Sprite>(action);
 
         ColorBlock colorBlock = slider.colors;
         // GlobalsSetter has a dictionary of action name to colour

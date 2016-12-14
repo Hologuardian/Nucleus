@@ -16,6 +16,7 @@ public class PlayerController : NetworkBehaviour
 
     public Colony colony;
     public Canvas canvas;
+    public BiomeSeeder seederPrefab;
 
     private Dictionary<string, ActionRewardWidget> widgets = new Dictionary<string, ActionRewardWidget>();
 
@@ -23,6 +24,11 @@ public class PlayerController : NetworkBehaviour
     void Start()
     {
         colony.playerController = this;
+        if(NetworkServer.connections.Count == 1)
+        {
+            BiomeSeeder seeder = Instantiate(seederPrefab);
+            NetworkServer.Spawn(seeder.gameObject);
+        }
     }
 
     // Update is called once per frame

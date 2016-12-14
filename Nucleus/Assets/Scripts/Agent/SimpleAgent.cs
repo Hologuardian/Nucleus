@@ -77,7 +77,7 @@ public class SimpleAgent : NetworkBehaviour
         if (board.ContainsKey(StringLiterals.TargetTransform))
             target_distance.value = ((Vector2)board[StringLiterals.TargetTransform].V - (Vector2)transform.position).magnitude;
 
-        board[StringLiterals.Energy].V = (float)board[StringLiterals.Energy].V - Time.deltaTime;
+        //board[StringLiterals.Energy].V = (float)board[StringLiterals.Energy].V - Time.deltaTime;
 
         transform.localScale = Vector3.MoveTowards(transform.localScale, (Vector3)board[StringLiterals.Scale].V, 0.01f);
 

@@ -32,6 +32,7 @@ public class Colony : NetworkBehaviour
         if (!availableActions.Contains(action.Label))
         {
             availableActions.Add(action.Label);
+            actionRewards[action.Label] = 0.5f;
             playerController.ActionAdded(action.Label);
         }
     }

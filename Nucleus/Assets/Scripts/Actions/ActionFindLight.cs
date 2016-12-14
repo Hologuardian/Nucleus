@@ -1,34 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
 public class ActionFindLight : Action
 {
     public float range = 100.0f;
+    private BiomeSeeder seeder;
 
-    public ActionFindLight(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.FindFood)
+    public ActionFindLight(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.FindLight)
     {
-
     }
 
     public override float Estimate()
     {
-        return 1.0f;
+        return -1.0f;
     }
 
     protected override void Execute()
     {
+        if(!seeder)
+            GameObject.FindObjectsOfType<BiomeSeeder>();
         // Time to find some nibbles
-        if (self.parent != null)
+        if (self != null)
         {
-            Vector2 target = UnityEngine.Random.insideUnitCircle * (self.parent.transform.lossyScale.x / 2) + (Vector2)self.parent.transform.position;
+            Vector2 target = self.transform.position;
 
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(self.transform.position, range, Vector2.zero);
             Glow hubby = null;
             float distance = float.PositiveInfinity;
 
-            foreach (RaycastHit2D hit in hits)
+            foreach (Glow binble in seeder.glows)
             {
-                Glow binble = hit.collider.GetComponent<Glow>();
                 if (binble != null)
                 {
                     float check = (binble.transform.position - self.transform.position).sqrMagnitude;

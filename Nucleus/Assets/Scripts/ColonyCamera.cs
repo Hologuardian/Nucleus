@@ -16,21 +16,24 @@ public class ColonyCamera : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        Vector3 avg = new Vector3(0, 0, 0);
-        int iter = 0;
-        float max = 0;
-        Vector3 cameraXY = new Vector3(transform.position.x, 0, transform.position.z);
-        foreach (SimpleAgent obj in colony.cells)
+        if (colony != null)
         {
-            avg += obj.transform.position;
-            iter++;
-            Vector3 objXY = new Vector3(obj.transform.position.x, 0, obj.transform.position.z);
-            float dist = (cameraXY - objXY).magnitude;
-            if (dist > max)
-                max = dist;
-        }
-        avg /= iter;
+            Vector3 avg = new Vector3(0, 0, 0);
+            int iter = 0;
+            float max = 0;
+            Vector3 cameraXY = new Vector3(transform.position.x, 0, transform.position.z);
+            foreach (SimpleAgent obj in colony.cells)
+            {
+                avg += obj.transform.position;
+                iter++;
+                Vector3 objXY = new Vector3(obj.transform.position.x, 0, obj.transform.position.z);
+                float dist = (cameraXY - objXY).magnitude;
+                if (dist > max)
+                    max = dist;
+            }
+            avg /= iter;
 
-        transform.position = Vector3.Lerp(transform.position, new Vector3(avg.x, max * r3 + 5.0f, avg.z), Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(avg.x, max * r3 + 5.0f, avg.z), Time.deltaTime);
+        }
     }
 }

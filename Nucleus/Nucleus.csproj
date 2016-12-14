@@ -79,13 +79,17 @@
     <Compile Include="Assets\Scripts\Actions\Action.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionEat.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionFindFood.cs" />
+    <Compile Include="Assets\Scripts\Actions\ActionFindLight.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionMove.cs" />
+    <Compile Include="Assets\Scripts\Actions\ActionProduce.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionWander.cs" />
     <Compile Include="Assets\Scripts\Agent\Colony.cs" />
+    <Compile Include="Assets\Scripts\Agent\Glow.cs" />
     <Compile Include="Assets\Scripts\Agent\Nibble.cs" />
     <Compile Include="Assets\Scripts\Agent\SimpleAgent.cs" />
     <Compile Include="Assets\Scripts\BiomeSeeder.cs" />
     <Compile Include="Assets\Scripts\Blackboard.cs" />
+    <Compile Include="Assets\Scripts\ColonyCamera.cs" />
     <Compile Include="Assets\Scripts\Condition.cs" />
     <Compile Include="Assets\Scripts\ConditionValue.cs" />
     <Compile Include="Assets\Scripts\GlobalsSetter.cs" />

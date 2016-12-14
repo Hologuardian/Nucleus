@@ -13,11 +13,12 @@ public class Glow : MonoBehaviour
     void Update()
     {
         range = Vector3.Lerp(range, TargetRange, 10.0f * Time.deltaTime);
-        transform.localScale = range;
+        gameObject.transform.localScale = range;
         lifeTime -= Time.deltaTime;
         if(lifeTime <= 0)
         {
-            seeder.UpdateLightSpot(this);
+            if(seeder)
+                seeder.UpdateLightSpot(this);
         }
         else if(lifeTime <= 1.0f)
         {

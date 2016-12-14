@@ -13,7 +13,7 @@ public class Colony : NetworkBehaviour
 
     void Start()
     {
-        Vector3 position = UnityEngine.Random.insideUnitCircle * 50.0f;
+        Vector3 position = UnityEngine.Random.insideUnitCircle * BiomeSeeder.WorldRadius;
 
         for(int i = 0; i < 10; i++)
         {

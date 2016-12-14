@@ -22,6 +22,8 @@ public class GlobalsSetter : MonoBehaviour
     public static Dictionary<string, Color> action_COLORS = new Dictionary<string, Color>()
     {
         { StringLiterals.FindLight, new Color(255, 251, 97)},
+        { StringLiterals.Produce, new Color(255, 251, 97)},
+        { StringLiterals.Move, new Color(0, 0, 0)},
         { StringLiterals.FindCell, new Color(97, 255, 235)},
         { StringLiterals.FindFood, new Color(97, 255, 111)},
         { StringLiterals.Lysis, new Color(214, 97, 255)},

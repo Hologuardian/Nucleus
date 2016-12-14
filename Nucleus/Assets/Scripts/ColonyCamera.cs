@@ -31,9 +31,10 @@ public class ColonyCamera : MonoBehaviour
                 if (dist > max)
                     max = dist;
             }
-            avg /= iter;
+            if (iter > 0)
+                avg /= iter;
 
-            transform.position = Vector3.Lerp(transform.position, new Vector3(avg.x, max * r3 + 5.0f, avg.z), Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(avg.x, max * r3, avg.z), Time.deltaTime);
         }
     }
 }

@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+public class QueuedAction
+{
+    public string actionToDo;
+}
+
 public class PlayerController : NetworkBehaviour
 {
     public ActionRewardWidget widget;
+
+    public List<QueuedAction> queuedActions = new List<QueuedAction>();
 
     public Colony colony;
     public Canvas canvas;
@@ -25,15 +32,41 @@ public class PlayerController : NetworkBehaviour
         {
             return;
         }
+
+        if (canvas == null)
+        {
+            ColonyCamera cerma = GameObject.FindObjectOfType<ColonyCamera>();
+            cerma.colony = colony;
+            canvas = cerma.GetComponentInChildren<Canvas>();
+        }
+        else
+        {
+            foreach(QueuedAction action in queuedActions)
+            {
+                ActionAdded(action.actionToDo);
+            }
+
+            queuedActions.Clear();
+        }
     }
 
     public void ActionAdded(string action)
     {
-        ActionRewardWidget widget_instance = Instantiate(widget, canvas.transform);
+        if (!widgets.ContainsKey(action))
+        {
+            if (canvas == null)
+            {
+                queuedActions.Add(new QueuedAction() { actionToDo = action });
+                return;
+            }
 
-        widget_instance.transform.position = new Vector3(widget_instance.transform.position.x + widgets.Count * 50, widget_instance.transform.position.y);
+            ActionRewardWidget widget_instance = Instantiate(widget, canvas.transform);
+            widget_instance.Initialise(action, colony);
 
-        widgets.Add(action, widget_instance);
+            widget_instance.transform.position = new Vector3(widget_instance.transform.position.x + widgets.Count * 50, widget_instance.transform.position.y);
+
+            widgets.Add(action, widget_instance);
+        }
     }
 
     public void ActionRemoved(string action)

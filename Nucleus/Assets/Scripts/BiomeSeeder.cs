@@ -22,7 +22,7 @@ public class BiomeSeeder : MonoBehaviour
             float range = 10.0f + Random.value * 20.0f;
             glowScript.TargetRange = new Vector3(range, range, range);
             glowScript.intensity = Random.value;
-            glowScript.lifeTime = 5.0f + Random.value * 15.0f;
+            glowScript.lifeTime = 30.0f + Random.value * 90.0f;
 
             glowScript.seeder = this;
             NetworkServer.Spawn(glowScript.gameObject);
@@ -41,6 +41,6 @@ public class BiomeSeeder : MonoBehaviour
         float range = 10.0f + Random.value * 20.0f;
         spot.TargetRange = new Vector3(range, range, range);
         spot.intensity = Random.value;
-        spot.lifeTime = 5.0f + Random.value * 15.0f;
+        spot.lifeTime = 30.0f + Random.value * 90.0f;
     }
 }

@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Actions\ActionEat.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionFindFood.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionFindLight.cs" />
+    <Compile Include="Assets\Scripts\Actions\ActionMitosis.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionMove.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionProduce.cs" />
     <Compile Include="Assets\Scripts\Actions\ActionWander.cs" />

@@ -21,7 +21,7 @@ public class BiomeSeeder : MonoBehaviour
             glowScript.transform.position = new Vector3(position.x, position.y, 0);
             float range = 10.0f + Random.value * 20.0f;
             glowScript.TargetRange = new Vector3(range, range, range);
-            glowScript.intensity = Random.value;
+            glowScript.intensity = Random.value * 4.0f + 1.0f;
             glowScript.lifeTime = 30.0f + Random.value * 90.0f;
 
             glowScript.seeder = this;

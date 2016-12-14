@@ -14,7 +14,7 @@ public class ActionFindLight : Action
 
     public override float Estimate()
     {
-        return -1.0f;
+        return 0.1f;
     }
 
     protected override void Execute()
@@ -44,6 +44,15 @@ public class ActionFindLight : Action
             {
                 target = hubby.transform.position;
                 target += Random.insideUnitCircle * hubby.range.x;
+            }
+
+            if((self.transform.position - hubby.transform.position).magnitude < hubby.range.x)
+            {
+                self.inLight = 1.0f;
+            }
+            else
+            {
+                self.inLight = 0.0f;
             }
 
             if (self.board.ContainsKey(StringLiterals.TargetTransform))

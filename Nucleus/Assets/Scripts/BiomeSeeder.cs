@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 
 public class BiomeSeeder : MonoBehaviour
 {
-    public SimpleAgent PrefabCell;
+    public Glow GlowPrefab;
     public PlayerController playerPrefab;
     public List<Glow> glows;
     // Use this for initialization
@@ -14,16 +14,19 @@ public class BiomeSeeder : MonoBehaviour
         {
             Vector2 position = Random.insideUnitCircle;
 
-            GameObject glow = new GameObject();
-            glow.AddComponent(typeof(Glow));
+            Glow glowScript = Instantiate(GlowPrefab) as Glow;
+            glowScript.gameObject.AddComponent(typeof(Glow));
+            glowScript.gameObject.name = "Light" + i;
 
-            Glow glowScript = glow.GetComponent<Glow>();
             glowScript.transform.position = new Vector3(position.x, 0, position.y);
-            glowScript.range = 2 + Random.Range(0, 10);
-            glowScript.transform.localScale = new Vector3(glowScript.range, glowScript.range, glowScript.range);
+            float range = 2 + Random.value * 10.0f;
+            glowScript.TargetRange = new Vector3(range, range, range);
             glowScript.intensity = Random.value;
+            glowScript.lifeTime = 5.0f + Random.value * 15.0f;
 
-            Instantiate(glow);
+            glowScript.seeder = this;
+
+            NetworkServer.Spawn(glowScript.gameObject);
         }
     }
 
@@ -36,8 +39,9 @@ public class BiomeSeeder : MonoBehaviour
     {
         Vector2 position = Random.insideUnitCircle;
         spot.transform.position = new Vector3(position.x, 0, position.y);
-        spot.range = 2 + Random.Range(0, 10);
-        spot.transform.localScale = new Vector3(spot.range, spot.range, spot.range);
+        float range = 2 + Random.value * 10.0f;
+        spot.TargetRange = new Vector3(range, range, range);
         spot.intensity = Random.value;
+        spot.lifeTime = 5.0f + Random.value * 15.0f;
     }
 }

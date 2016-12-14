@@ -25,6 +25,7 @@ public class SimpleAgent : NetworkBehaviour
     private ConditionValue target_distance_threshold = new ConditionValue(0.5f);
     private ConditionValue target_distance;
     private Action move;
+    private float inLight = 0.0f;
 
     // Use this for initialization
     void Start()
@@ -49,7 +50,7 @@ public class SimpleAgent : NetworkBehaviour
         a.self = this;
         move = a;
 
-        a = new ActionProduce(this, new Condition(target_distance, new ConditionValue(15.0f), Condition.ConditionLogic.lessequal));
+        a = new ActionProduce(this, new Condition(new ConditionValue(inLight), new ConditionValue(1.0f), Condition.ConditionLogic.equal));
         a.self = this;
         actions.Add(a);
 
@@ -118,6 +119,22 @@ public class SimpleAgent : NetworkBehaviour
         {
             if (a.Evaluate())
                 break;
+        }
+    }
+
+    void OnTriggerEnter(Collider c)
+    {
+        if(c.gameObject.GetComponent<Glow>())
+        {
+            inLight = 1.0f;
+        }
+    }
+
+    void OnTriggerExit(Collider c)
+    {
+        if (c.gameObject.GetComponent<Glow>())
+        {
+            inLight = 0.0f;
         }
     }
 

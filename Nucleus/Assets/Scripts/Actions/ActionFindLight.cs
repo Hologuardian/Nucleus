@@ -9,6 +9,7 @@ public class ActionFindLight : Action
 
     public ActionFindLight(SimpleAgent self, Condition condition) : base(self, condition, StringLiterals.FindLight)
     {
+        seeder = GameObject.FindGameObjectWithTag("seeder").GetComponent<BiomeSeeder>();
     }
 
     public override float Estimate()
@@ -18,8 +19,6 @@ public class ActionFindLight : Action
 
     protected override void Execute()
     {
-        if(!seeder)
-            GameObject.FindObjectsOfType<BiomeSeeder>();
         // Time to find some nibbles
         if (self != null)
         {
@@ -44,6 +43,7 @@ public class ActionFindLight : Action
             if (hubby != null)
             {
                 target = hubby.transform.position;
+                target += Random.insideUnitCircle * hubby.range.x;
             }
 
             if (self.board.ContainsKey(StringLiterals.TargetTransform))

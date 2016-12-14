@@ -27,6 +27,7 @@ public class PlayerController : NetworkBehaviour
         if(NetworkServer.connections.Count == 1)
         {
             BiomeSeeder seeder = Instantiate(seederPrefab);
+            seeder.gameObject.tag = "seeder";
             NetworkServer.Spawn(seeder.gameObject);
         }
     }

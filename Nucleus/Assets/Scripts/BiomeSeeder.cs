@@ -25,6 +25,7 @@ public class BiomeSeeder : MonoBehaviour
             glowScript.lifeTime = 30.0f + Random.value * 90.0f;
 
             glowScript.seeder = this;
+            glows.Add(glowScript);
             NetworkServer.Spawn(glowScript.gameObject);
         }
     }
